@@ -1,0 +1,10 @@
+E:\Projects\Hoops\Hoops\bin\Debug\Hoops.exe.config
+E:\Projects\Hoops\Hoops\bin\Debug\Hoops.exe
+E:\Projects\Hoops\Hoops\bin\Debug\Hoops.pdb
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csprojAssemblyReference.cache
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.Form1.resources
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.Properties.Resources.resources
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.GenerateResource.cache
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.CoreCompileInputs.cache
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.exe
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.pdb
