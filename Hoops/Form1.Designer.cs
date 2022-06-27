@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.timerShootingBall = new System.Windows.Forms.Timer(this.components);
             this.pbPower = new System.Windows.Forms.ProgressBar();
             this.timerPower = new System.Windows.Forms.Timer(this.components);
+            this.timerPlayerAnimation = new System.Windows.Forms.Timer(this.components);
+            this.lblScoreboard = new System.Windows.Forms.Label();
+            this.lblTimeLeft = new System.Windows.Forms.Label();
+            this.timerTimeLeft = new System.Windows.Forms.Timer(this.components);
+            this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.pbBall = new System.Windows.Forms.PictureBox();
             this.pbFullCourt = new System.Windows.Forms.PictureBox();
-            this.pbPlayer = new System.Windows.Forms.PictureBox();
-            this.timerPlayerAnimation = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullCourt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,9 +51,10 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "lblDebug";
+            this.label1.Visible = false;
             // 
             // timerShootingBall
             // 
@@ -72,6 +77,52 @@
             // 
             this.timerPower.Interval = 2;
             this.timerPower.Tick += new System.EventHandler(this.timerPower_Tick);
+            // 
+            // timerPlayerAnimation
+            // 
+            this.timerPlayerAnimation.Interval = 60;
+            this.timerPlayerAnimation.Tick += new System.EventHandler(this.timerPlayerAnimation_Tick);
+            // 
+            // lblScoreboard
+            // 
+            this.lblScoreboard.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lblScoreboard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblScoreboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScoreboard.ForeColor = System.Drawing.Color.Brown;
+            this.lblScoreboard.Location = new System.Drawing.Point(164, 240);
+            this.lblScoreboard.Name = "lblScoreboard";
+            this.lblScoreboard.Size = new System.Drawing.Size(117, 39);
+            this.lblScoreboard.TabIndex = 5;
+            this.lblScoreboard.Text = "0";
+            this.lblScoreboard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTimeLeft
+            // 
+            this.lblTimeLeft.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lblTimeLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeLeft.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblTimeLeft.Location = new System.Drawing.Point(47, 240);
+            this.lblTimeLeft.Name = "lblTimeLeft";
+            this.lblTimeLeft.Size = new System.Drawing.Size(117, 39);
+            this.lblTimeLeft.TabIndex = 6;
+            this.lblTimeLeft.Text = "0";
+            this.lblTimeLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timerTimeLeft
+            // 
+            this.timerTimeLeft.Interval = 1000;
+            this.timerTimeLeft.Tick += new System.EventHandler(this.timerTimeLeft_Tick);
+            // 
+            // pbPlayer
+            // 
+            this.pbPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.pbPlayer.Location = new System.Drawing.Point(352, 557);
+            this.pbPlayer.Name = "pbPlayer";
+            this.pbPlayer.Size = new System.Drawing.Size(79, 167);
+            this.pbPlayer.TabIndex = 4;
+            this.pbPlayer.TabStop = false;
+            this.pbPlayer.Visible = false;
             // 
             // pbBall
             // 
@@ -98,32 +149,20 @@
             this.pbFullCourt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseClick);
             this.pbFullCourt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseMove);
             // 
-            // pbPlayer
-            // 
-            this.pbPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.pbPlayer.Location = new System.Drawing.Point(352, 557);
-            this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(79, 167);
-            this.pbPlayer.TabIndex = 4;
-            this.pbPlayer.TabStop = false;
-            this.pbPlayer.Visible = false;
-            // 
-            // timerPlayerAnimation
-            // 
-            this.timerPlayerAnimation.Interval = 10;
-            this.timerPlayerAnimation.Tick += new System.EventHandler(this.timerPlayerAnimation_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1083, 815);
+            this.Controls.Add(this.lblTimeLeft);
+            this.Controls.Add(this.lblScoreboard);
             this.Controls.Add(this.pbPlayer);
             this.Controls.Add(this.pbPower);
             this.Controls.Add(this.pbBall);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbFullCourt);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hoops";
@@ -132,9 +171,9 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullCourt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +188,9 @@
         private System.Windows.Forms.PictureBox pbFullCourt;
         private System.Windows.Forms.PictureBox pbPlayer;
         private System.Windows.Forms.Timer timerPlayerAnimation;
+        private System.Windows.Forms.Label lblScoreboard;
+        private System.Windows.Forms.Label lblTimeLeft;
+        private System.Windows.Forms.Timer timerTimeLeft;
     }
 }
 

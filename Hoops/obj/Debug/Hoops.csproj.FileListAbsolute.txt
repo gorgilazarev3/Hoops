@@ -8,3 +8,4 @@ E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.GenerateResource.cache
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.CoreCompileInputs.cache
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.exe
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.pdb
+E:\Projects\Hoops\Hoops\obj\Debug\Hoops.PlayerForm.resources

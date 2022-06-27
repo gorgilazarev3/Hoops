@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Hoops
 {
+    [Serializable]
     public class Player
     {
         public Point Location { get; set; }
+        public string Name { get; set; }
         public int Points { get; set; }
         public bool AnimationStarted { get; set; }
         public bool AnimationFinished { get; set; }
@@ -19,10 +21,20 @@ namespace Hoops
         public bool HasBall { get; set; }
         public bool IsShooting { get; set; }
         public bool FinishedShooting { get; set; }
+        public string CurrentAnimation { get; set; }
 
         public Player(Point location)
         {
             Location = location;
+            ResetPlayer();
+        }
+
+        public Player()
+        {
+        }
+
+        public void ResetPlayer()
+        {
             Points = 0;
             AnimationFinished = false;
             AnimationStarted = false;
@@ -32,10 +44,8 @@ namespace Hoops
             IsShooting = false;
             FinishedShooting = false;
             AnimationStep = 1;
-        }
-
-        public Player()
-        {
+            Name = null;
+            CurrentAnimation = "anim1";
         }
 
         public void Animate()
@@ -54,6 +64,17 @@ namespace Hoops
         public void StartAnimation()
         {
             AnimationStarted = true;
+            AnimationFinished = false;
         }
+
+        public void SetPlayerName(string name)
+        {
+            Name = name;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} - Points:{1}", Name, Points);
+        } 
     }
 }

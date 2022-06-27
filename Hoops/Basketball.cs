@@ -61,14 +61,17 @@ namespace Hoops
         public double YMovement(double speed, double theta, double time, double gravity) //makeshift gravity
         {
             double a = Math.Sin(theta * (Math.PI / 180));
-            return (((speed*0.65 * a/2 * -10) * time + gravity * Math.Pow(time, 2)) / 100); //s = ut + .5at^2
+            return (((speed*0.689 * a/2 * -10) * time + gravity * Math.Pow(time, 2)) / 100); //s = ut + .5at^2
         }
 
         public void Shoot(double power, int angle, int gravity, Court court)
         {
-            Power = power;
-            if (IsInHoop)
+            if(IsInHoop)
+            {
                 FinishShot();
+                return;
+            }
+            Power = power;
             IsShot = true;
             double nextX, nextY;
             //vertical travel of ball
@@ -90,7 +93,7 @@ namespace Hoops
                 nextX += (int)dx;
             }
             //if the ball hits the ground
-            if(nextY > court.Floor.FloorStart.Y-2*Radius)
+            if(nextY > court.Floor.FloorStart.Y-2*Radius && !IsInHoop)
             {
                 BounceCoef *= .7;
                 Power *= BounceCoef;
@@ -140,7 +143,7 @@ namespace Hoops
             }
 
             //if ball goes inside hoop
-            if (nextX + Radius  >= (int)court.Hoop.InsideRim.X1 && nextX + Radius <= (int)court.Hoop.InsideRim.X2 && nextY >= (int)court.Hoop.InsideRim.Y1 - 2*Radius && nextY <= (int)court.Hoop.InsideRim.Y2)
+            if (nextX + Radius  >= (int)court.Hoop.InsideRim.X1 && nextX + Radius <= (int)court.Hoop.InsideRim.X2 && nextY + Radius >= (int)court.Hoop.InsideRim.Y1 && !IsBouncing)
             {
                 IsInHoop = true;
                 Power *= .2;
@@ -149,12 +152,12 @@ namespace Hoops
             //if player scored, reset game state
             if(IsInHoop)
             {
-                nextX = InitialLocation.X;
-                nextY = InitialLocation.Y;
-                FinishShot();
-                BounceCoef = 1;
-                Power = 50;
-                SecondsSinceShot = 0;
+                    nextX = InitialLocation.X;
+                    nextY = InitialLocation.Y;
+                    //FinishShot();
+                    BounceCoef = 1;
+                    Power = 50;
+                    SecondsSinceShot = 0;
             }
 
 
