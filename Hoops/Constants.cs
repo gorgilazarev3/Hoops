@@ -28,6 +28,8 @@ namespace Hoops
         public static int FORM_HEIGHT { get; set; } = 818;
         public static Point SCOREBOARD_LOCATION { get; set; } = new Point(409,250);
         public static string SCORES_FILE_PATH { get; set; } = @"C:\Users\Lazarevi\Documents\test.hf";
+        public static int PLAYER_IMAGE_WIDTH { get; set; } = 85;
+        public static int PLAYER_IMAGE_HEIGHT { get; set; } = 216;
 
     }
 }

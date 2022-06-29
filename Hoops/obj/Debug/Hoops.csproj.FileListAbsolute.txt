@@ -9,3 +9,14 @@ E:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.CoreCompileInputs.cache
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.exe
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.pdb
 E:\Projects\Hoops\Hoops\obj\Debug\Hoops.PlayerForm.resources
+F:\Projects\Hoops\Hoops\bin\Debug\Hoops.exe.config
+F:\Projects\Hoops\Hoops\bin\Debug\Hoops.exe
+F:\Projects\Hoops\Hoops\bin\Debug\Hoops.pdb
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.csprojAssemblyReference.cache
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.Form1.resources
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.PlayerForm.resources
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.Properties.Resources.resources
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.GenerateResource.cache
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.csproj.CoreCompileInputs.cache
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.exe
+F:\Projects\Hoops\Hoops\obj\Debug\Hoops.pdb

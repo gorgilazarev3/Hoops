@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
@@ -19,6 +20,7 @@ namespace Hoops
         public double BounceCoef { get; set; }
         public double Power { get; set; }
         public int Radius { get; set; }
+        private int RotationAngle { get; set; }
 
         public Basketball(Point initialLocation, int radius)
         {
@@ -31,6 +33,7 @@ namespace Hoops
             BounceCoef = 1;
             Power = 50;
             Radius = radius;
+            RotationAngle = 0;
         }
 
         public void ShootTimed(int barValue, Court court)
@@ -98,6 +101,8 @@ namespace Hoops
                 BounceCoef *= .7;
                 Power *= BounceCoef;
                 SecondsSinceShot = 0;
+                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
+                sp.Play();
                 if (BounceCoef < .4) //if bounce coefficient make the bounces too small to distinguish on the screen
                 {
                     nextY = InitialLocation.Y;
@@ -127,6 +132,8 @@ namespace Hoops
                 //lastStartX = (int)picBall.Location.X;
                 //lastStartY = (int)picBall.Location.Y;
                 IsBouncing = true;
+                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_Brick);
+                sp.Play();
             }
 
             //if it bounces off from the front of the rim
@@ -134,12 +141,16 @@ namespace Hoops
             if(nextX >= court.Hoop.RimLeftStart.X && nextX <= court.Hoop.RimLeftEnd.X && nextY >= court.Hoop.RimLeftStart.Y)
             {
                 IsBouncing = !IsBouncing;
+                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_Brick);
+                sp.Play();
             }
 
             //if ball comes into contact with the pole
             if(nextX >= court.Hoop.PoleStart.X - 2*Radius && nextY >= court.Hoop.PoleStart.Y && nextY <= court.Hoop.PoleEnd.Y)
             {
                 IsBouncing = true;
+                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_Brick);
+                sp.Play();
             }
 
             //if ball goes inside hoop
@@ -147,6 +158,8 @@ namespace Hoops
             {
                 IsInHoop = true;
                 Power *= .2;
+                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_Swish);
+                sp.Play();
             }
 
             //if player scored, reset game state
@@ -191,6 +204,37 @@ namespace Hoops
             //g.DrawCurve(p, points.ToArray());
             p.Dispose();
             b.Dispose();
+        }
+
+        public void Draw(Graphics g)
+        {
+            Bitmap img = new Bitmap(Hoops.Properties.Resources.basketball, 2*Radius,2*Radius);
+            switch (RotationAngle)
+            {
+                case 0:
+                    img.RotateFlip(RotateFlipType.RotateNoneFlipNone);
+                    break;
+                case 90:
+                    img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    break;
+                case 180:
+                    img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                    break;
+                case 270:
+                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    break;
+                default:
+                    img.RotateFlip(RotateFlipType.RotateNoneFlipNone);
+                    break;
+
+            }
+            RotationAngle +=90;
+            if(RotationAngle == 360)
+            {
+                RotationAngle = 0;
+            }
+            g.DrawImage(img, CurrentLocation.X, CurrentLocation.Y, 2*Radius, 2*Radius);
+            img.Dispose();
         }
     }
 }

@@ -118,40 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="basketball" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basketball_court_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball-court-full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basketball_court_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball-court-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basketball_court_outside_free_throw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball-court-outside-free-throw.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basketball_court_timed_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball-court-timed-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="player_timed_mode_anim3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-timed-mode-anim3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="player_timed_mode_anim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\player-timed-mode-anim1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player_timed_mode_anim2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\player-timed-mode-anim2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn-start-game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\btn-start-game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player_timed_mode_anim3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\player-timed-mode-anim3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="right_hoop_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\right-hoop-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player_timed_mode_anim4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\player-timed-mode-anim4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Basketball_BallBounce" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sounds\Basketball-BallBounce.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="basketball_court_outside_free_throw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball-court-outside-free-throw.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basketball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Basketball_Swish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sounds\Basketball-Swish.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hoops-logo-text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\hoops-logo-text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Basketball_Brick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sounds\Basketball-Brick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="player_timed_mode_anim5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\player-timed-mode-anim5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hoops-text-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\hoops-text-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basketball_court_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball-court-full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="player_timed_mode_anim6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\player-timed-mode-anim6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="right_hoop_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\right-hoop-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="player_timed_mode_anim4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-timed-mode-anim4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_timed_mode_anim2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-timed-mode-anim2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basketball_court_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball-court-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basketball_court_timed_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball-court-timed-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn-exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\btn-exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

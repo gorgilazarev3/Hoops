@@ -136,5 +136,29 @@
   <ItemGroup>
     <None Include="Properties\images\player-timed-mode-anim6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sounds\Basketball-Brick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sounds\Basketball-Swish.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sounds\Basketball-BallBounce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\hoops-text-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\hoops-logo-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\btn-start-game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\btn-exit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
