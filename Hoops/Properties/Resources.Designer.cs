@@ -160,6 +160,16 @@ namespace Hoops.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap freestyle_mode_text {
+            get {
+                object obj = ResourceManager.GetObject("freestyle-mode-text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoops_logo_text {
             get {
                 object obj = ResourceManager.GetObject("hoops-logo-text", resourceCulture);
@@ -183,6 +193,166 @@ namespace Hoops.Properties {
         internal static System.Drawing.Bitmap icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim1 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim2 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim3 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim4 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim5 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim6 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_anim7 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_anim7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_idle_anim1 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_idle_anim1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dribble_idle_anim2 {
+            get {
+                object obj = ResourceManager.GetObject("player_dribble_idle_anim2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim1 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim2 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim3 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim4 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim5 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim6 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_dunking_anim7 {
+            get {
+                object obj = ResourceManager.GetObject("player_dunking_anim7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,6 +423,16 @@ namespace Hoops.Properties {
         internal static System.Drawing.Bitmap right_hoop_only {
             get {
                 object obj = ResourceManager.GetObject("right_hoop_only", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap timed_mode_text {
+            get {
+                object obj = ResourceManager.GetObject("timed-mode-text", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

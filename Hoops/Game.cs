@@ -16,6 +16,7 @@ namespace Hoops
         public double Power { get; set; }
         public int Angle { get; set; }
         public bool CanShoot { get; set; }
+        public Constants.GAME_TYPE TYPE_OF_GAME { get; set; }
 
         protected Game(Basketball basketball, Player player)
         {
@@ -54,6 +55,16 @@ namespace Hoops
         public void DrawCurveFromBall(Graphics g)
         {
             Basketball.DrawCurveFromBall(g, Angle);
+        }
+
+        public void SetGameType(Constants.GAME_TYPE type)
+        {
+            TYPE_OF_GAME = type;
+        }
+
+        public Constants.GAME_TYPE GetGameType()
+        {
+            return TYPE_OF_GAME;
         }
 
     }

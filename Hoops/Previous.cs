@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hoops
 {
-    public class Freestyle
+    public class Previous
     {
         public Hoop Hoop { get; set; }
         public Floor Floor { get; set; }
@@ -18,7 +18,7 @@ namespace Hoops
         public bool IsStarted { get; set; }
         public bool PowerSet { get; set; }
 
-        public Freestyle(Point rimLocation)
+        public Previous(Point rimLocation)
         {
             Power = 20;
             Angle = 35;

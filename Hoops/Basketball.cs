@@ -69,7 +69,7 @@ namespace Hoops
 
         public void Shoot(double power, int angle, int gravity, Court court)
         {
-            if(IsInHoop)
+            if(IsInHoop && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
             {
                 FinishShot();
                 return;
@@ -103,7 +103,7 @@ namespace Hoops
                 SecondsSinceShot = 0;
                 SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
                 sp.Play();
-                if (BounceCoef < .4) //if bounce coefficient make the bounces too small to distinguish on the screen
+                if (BounceCoef < .4 && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED)) //if bounce coefficient make the bounces too small to distinguish on the screen
                 {
                     nextY = InitialLocation.Y;
                     nextX = InitialLocation.X;
@@ -116,7 +116,7 @@ namespace Hoops
             }
 
             //if the ball goes out of bounds
-            if (nextX > Constants.FORM_WIDTH || nextX < 0)
+            if ((nextX > Constants.FORM_WIDTH || nextX < 0) && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
             {
                 nextY = InitialLocation.Y;
                 nextX = InitialLocation.X;
@@ -162,8 +162,8 @@ namespace Hoops
                 sp.Play();
             }
 
-            //if player scored, reset game state
-            if(IsInHoop)
+            //if player scored, reset game state - for timed mode
+            if(IsInHoop && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
             {
                     nextX = InitialLocation.X;
                     nextY = InitialLocation.Y;
@@ -198,7 +198,7 @@ namespace Hoops
                 double dx;
                 dx = Power * Math.Cos(angle * (3.14 / 180));
                 dx /= 10;
-                g.FillEllipse(b, (int)((InitialLocation.X+Radius) + (int)dx * t), (int)(CurrentLocation.Y+Radius + YMovement(Power, angle, t - 1, Freestyle.GRAVITY)), 4, 4);
+                g.FillEllipse(b, (int)((InitialLocation.X+Radius) + (int)dx * t), (int)(CurrentLocation.Y+Radius + YMovement(Power, angle, t - 1, Previous.GRAVITY)), 4, 4);
                 //points.Add(new Point((int)((InitialLocation.X) + (int)dx * t), (int)(CurrentLocation.Y + (45 / 2) + YMovement(Power, angle, t - 1, Freestyle.GRAVITY))));
             }
             //g.DrawCurve(p, points.ToArray());
@@ -235,6 +235,20 @@ namespace Hoops
             }
             g.DrawImage(img, CurrentLocation.X, CurrentLocation.Y, 2*Radius, 2*Radius);
             img.Dispose();
+        }
+
+        public void MoveLeft()
+        {
+            if (CurrentLocation.X - 5 > 0)
+            {
+                CurrentLocation = new Point(CurrentLocation.X - 5, CurrentLocation.Y);
+            }
+        }
+
+        public void MoveRight()
+        {
+            if (CurrentLocation.X + 5 < Constants.POLE_START.X)
+                CurrentLocation = new Point(CurrentLocation.X + 5, CurrentLocation.Y);
         }
     }
 }

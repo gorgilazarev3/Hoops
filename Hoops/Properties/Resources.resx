@@ -124,8 +124,8 @@
   <data name="player_timed_mode_anim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\player-timed-mode-anim1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn-start-game" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\btn-start-game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="basketball_court_timed_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\basketball-court-timed-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="right_hoop_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\right-hoop-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +138,9 @@
   </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn-exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\btn-exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="basketball" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\basketball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,10 +175,61 @@
   <data name="basketball_court_only" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\basketball-court-only.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="basketball_court_timed_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\basketball-court-timed-mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn-start-game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\btn-start-game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn-exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>images\btn-exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="freestyle-mode-text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\freestyle-mode-text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="timed-mode-text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\timed-mode-text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_anim7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-anim7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_idle_anim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-idle-anim1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dribble_idle_anim2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dribble-idle-anim2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_dunking_anim7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunking-anim7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

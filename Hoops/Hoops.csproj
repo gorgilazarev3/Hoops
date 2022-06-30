@@ -57,7 +57,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Freestyle.cs" />
+    <Compile Include="FreestyleGame.cs" />
+    <Compile Include="Previous.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="HighScores.cs" />
     <Compile Include="Hoop.cs" />
@@ -159,6 +160,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\images\btn-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\freestyle-mode-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\timed-mode-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-anim7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunking-anim7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-idle-anim1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dribble-idle-anim2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
