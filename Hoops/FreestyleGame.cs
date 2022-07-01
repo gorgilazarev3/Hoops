@@ -13,6 +13,8 @@ namespace Hoops
         public FreestyleGame(Basketball basketball, Player player) : base(basketball, player)
         {
             this.Random = new Random();
+            CanShoot = true;
+            Player.IsDribbling = true;
         }
 
         public override void EndGame()
@@ -22,8 +24,13 @@ namespace Hoops
 
         public override void Shoot()
         {
-            InitiateShooting();
+            Basketball.SecondsSinceShot++;
             Basketball.Shoot(Power, Angle, Constants.GRAVITY, Court);
+            if (!Basketball.IsShot)
+            {
+                CanShoot = false;
+                PowerSet = false;
+            }
         }
 
         public override void StartGame()
@@ -34,7 +41,7 @@ namespace Hoops
         public void InitiateShooting()
         {
             Power = Random.Next(50, 100);
-            Angle = Random.Next(35, 70);
+            Angle = Random.Next(0, 90);
         }
     }
 }

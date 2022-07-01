@@ -232,4 +232,7 @@
   <data name="player_dunking_anim7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\player-dunking-anim7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="player_dunk_anim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\player-dunk-anim.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

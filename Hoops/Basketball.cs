@@ -64,12 +64,12 @@ namespace Hoops
         public double YMovement(double speed, double theta, double time, double gravity) //makeshift gravity
         {
             double a = Math.Sin(theta * (Math.PI / 180));
-            return (((speed*0.689 * a/2 * -10) * time + gravity * Math.Pow(time, 2)) / 100); //s = ut + .5at^2
+            return (((speed*0.82 * a/2 * -10) * time + gravity * Math.Pow(time, 2)) / 100); //s = ut + .5at^2
         }
 
         public void Shoot(double power, int angle, int gravity, Court court)
         {
-            if(IsInHoop && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+            if(IsInHoop)
             {
                 FinishShot();
                 return;
@@ -103,7 +103,7 @@ namespace Hoops
                 SecondsSinceShot = 0;
                 SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
                 sp.Play();
-                if (BounceCoef < .4 && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED)) //if bounce coefficient make the bounces too small to distinguish on the screen
+                if (BounceCoef < .4) //if bounce coefficient make the bounces too small to distinguish on the screen
                 {
                     nextY = InitialLocation.Y;
                     nextX = InitialLocation.X;
@@ -116,7 +116,7 @@ namespace Hoops
             }
 
             //if the ball goes out of bounds
-            if ((nextX > Constants.FORM_WIDTH || nextX < 0) && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+            if (nextX > Constants.FORM_WIDTH || nextX < 0)
             {
                 nextY = InitialLocation.Y;
                 nextX = InitialLocation.X;
@@ -163,7 +163,7 @@ namespace Hoops
             }
 
             //if player scored, reset game state - for timed mode
-            if(IsInHoop && Form1.game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+            if(IsInHoop)
             {
                     nextX = InitialLocation.X;
                     nextY = InitialLocation.Y;
@@ -242,13 +242,18 @@ namespace Hoops
             if (CurrentLocation.X - 5 > 0)
             {
                 CurrentLocation = new Point(CurrentLocation.X - 5, CurrentLocation.Y);
+                InitialLocation = CurrentLocation;
             }
         }
 
         public void MoveRight()
         {
             if (CurrentLocation.X + 5 < Constants.POLE_START.X)
+            {
                 CurrentLocation = new Point(CurrentLocation.X + 5, CurrentLocation.Y);
+                InitialLocation = CurrentLocation;
+
+            }
         }
     }
 }

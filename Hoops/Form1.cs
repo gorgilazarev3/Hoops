@@ -50,6 +50,7 @@ namespace Hoops
             this.DoubleBuffered = true;
             //pnlMenu.Size = new Size(Constants.FORM_WIDTH, Constants.FORM_HEIGHT);
             Deserialize();
+            //label1.Visible = true;
             //pbFullCourt.Size = new Size(Constants.FORM_WIDTH, Constants.FORM_HEIGHT);
             //pbFullCourt.Image = Hoops.Properties.Resources.basketball_court_outside_free_throw;
         }
@@ -95,9 +96,9 @@ namespace Hoops
         private void pbFullCourt_MouseMove(object sender, MouseEventArgs e)
         {
             cursor = e.Location;
-            if(game != null && game.TYPE_OF_GAME.Equals(Constants.GAME_TYPE.TIMED))
+            if(game != null)
             {
-                if (game != null && !(game as TimedGame).PowerSet && game.IsStarted)
+                if (game != null && !game.PowerSet && game.IsStarted)
                 {
                     int pwr = Math.Abs(cursor.X - game.Basketball.InitialLocation.X + game.Basketball.Radius) / 5;
                     if (pwr > 100)
@@ -106,6 +107,7 @@ namespace Hoops
                         pwr = 0;
                     double angle = GetAngleOfLineBetweenTwoPoints(game.Basketball.InitialLocation, cursor);
                     game.Angle = (int)angle;
+                    if(game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
                     Invalidate(true);
                 }
             }
@@ -135,9 +137,20 @@ namespace Hoops
                 updateTimeLeft();
             }
 
+            if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+            {
+                pbBall.Location = game.Player.Location;
+                //pbPlayer.Location = game.Player.Location;
+                //pbPlayer.Parent = pbFullCourt;
+                //if(!pbPlayer.Visible)
+                //{
+                //    pbPlayer.Visible = true;
+                //}
+            }
 
 
-            if(game != null && game.Player.AnimationFinished && game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+
+            if (game != null && game.Player.AnimationFinished && game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
             {
                 //pbBall.Visible = true;
                 game.Basketball.Draw(e.Graphics);
@@ -148,6 +161,14 @@ namespace Hoops
                 game.Player.Draw(e.Graphics);
             }
             updatePlayerMovement();
+
+            if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+            {
+                if(game.Basketball.IsShot)
+                {
+                    game.Basketball.Draw(e.Graphics);
+                }
+            }
             //if (tg.IsStarted && !pbBall.Visible)
             //{
             //    pbBall.Parent = pbFullCourt;
@@ -159,9 +180,16 @@ namespace Hoops
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+            if(game != null)
             {
-                if (game != null && e.KeyCode == Keys.Space && !(game as TimedGame).PowerSet)
+                if(e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+                {
+                    game.Player.IsDribbling = true;
+                    game.Player.IsRunning = false;
+                    game.Player.IsDunking = false;
+                    game.Player.IsShooting = false;
+                }
+                if (e.KeyCode == Keys.Space && !game.PowerSet)
                 {
 
                     if (game.IsStarted && game.CanShoot)
@@ -172,8 +200,15 @@ namespace Hoops
                             pbPower.Enabled = true;
                             pbPower.Location = new Point(pbBall.Location.X, pbBall.Location.Y + 100);
                             pbPower.Visible = true;
-                            game.Player.AnimationStep = 2;
-                            game.Player.StartAnimation();
+                            if(game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
+                            {
+                                game.Player.AnimationStep = 2;
+                                game.Player.StartAnimation();
+                            }
+                            if(game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+                            {
+                                game.Player.StartAnimation();
+                            }
                             timerPower.Enabled = true;
                             timerPower.Start();
                             Invalidate(true);
@@ -190,7 +225,7 @@ namespace Hoops
                             }
                             game.Power = pbPower.Value;
                             game.Basketball.Power = pbPower.Value;
-                            (game as TimedGame).PowerSet = true;
+                            game.PowerSet = true;
                             pbPower.Enabled = false;
                             pbPower.Value = 0;
                             pbPower.Visible = false;
@@ -200,11 +235,39 @@ namespace Hoops
                             numPresses = 0;
                             timerPlayerAnimation.Enabled = true;
                             timerPlayerAnimation.Start();
+                            if(game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+                            {
+                                double dist = Math.Abs(Constants.RIM_LEFT_START.X - game.Player.Location.X);
+                                if(dist < 200)
+                                {
+                                    game.Player.IsDunking = true;
+                                    game.Player.IsShooting = false;
+                                }
+                                else
+                                {
+                                    game.Player.IsShooting = true;
+                                    game.Player.IsDunking = false;
+                                }
+                                game.Player.IsDribbling = false;
+
+                                game.Player.IsRunning = false;
+                                game.Basketball.IsShot = true;
+                                game.Player.AnimationStep = 1;
+                            }
                         }
                     }
 
                 }
             }
+
+            //if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+            //{
+            //    if(e.KeyCode == Keys.Space)
+            //    {
+            //        timerShootingBall.Enabled = true;
+            //        timerShootingBall.Start();
+            //    }
+            //}
 
         }
 
@@ -216,7 +279,7 @@ namespace Hoops
                 updateBallLocation();
                 if (game.Basketball.IsInHoop)
                 {
-                    (game as TimedGame).Player.Points++;
+                    game.Player.Points++;
                     updateScoreboard();
                 }
                 Invalidate(true);
@@ -295,8 +358,21 @@ namespace Hoops
             else if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE) && game.Player.AnimationStarted)
             {
                 game.Player.Animate();
-            }
+                if(game.Player.IsShooting)
+                {
+                    if (game.Player.AnimationStep > Constants.TIMED_MODE_ANIMATION_STEPS)
+                    {
+                        timerShootingBall.Enabled = true;
+                        timerShootingBall.Start();
+                        timerPlayerAnimation.Stop();
+                        game.Player.AnimationStep = 1;
+                        game.Player.IsShooting = false;
+                        game.Player.IsDribbling = true;
+                        game.Player.CurrentAnimation = "idle_anim1";
+                    }
+                }
 
+            }
             Invalidate(true);
         }
 
@@ -389,9 +465,17 @@ namespace Hoops
                     if (!game.Player.AnimationStarted)
                         game.Player.StartAnimation();
                     game.Player.MoveLeft();
-                    game.Basketball.MoveLeft();
-                    if(game.Player.CurrentAnimation == "idle_anim2")
+                    if(!game.Basketball.IsShot)
+                        game.Basketball.MoveLeft();
+                    game.Player.IsRunning = true;
+                    game.Player.IsDribbling = false;
+                    game.Player.IsShooting = false;
+                    game.Player.IsDunking = false;
+                    if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
                         game.Player.CurrentAnimation = "anim1";
+                    if (!timerPlayerAnimation.Enabled)
+                        timerPlayerAnimation.Start();
+                    game.Player.LeftOrientation = true;
                     Invalidate(true);
                 }
                 if(e.KeyCode == Keys.Right)
@@ -399,9 +483,15 @@ namespace Hoops
                     if (!game.Player.AnimationStarted)
                         game.Player.StartAnimation();
                     game.Player.MoveRight();
-                    game.Basketball.MoveRight();
-                    if (game.Player.CurrentAnimation == "idle_anim2")
+                    if (!game.Basketball.IsShot)
+                        game.Basketball.MoveRight();
+                    game.Player.IsRunning = true;
+                    game.Player.IsDribbling = false;
+                    game.Player.IsShooting = false;
+                    game.Player.IsDunking = false;
+                    if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
                         game.Player.CurrentAnimation = "anim1";
+                    game.Player.LeftOrientation = false;
                     Invalidate(true);
                 }
             }
@@ -446,7 +536,128 @@ namespace Hoops
                         game.Player.CurrentAnimation = "anim6";
                     }
                 }
-                }
+            }
+
+            //if (game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
+            //{
+            //    if (game.Player.IsDribbling)
+            //    {
+            //        if (!game.Player.AnimationStarted && game.Player.CurrentAnimation == "anim1")
+            //        {
+            //            game.Player.CurrentAnimation = "idle_anim1";
+            //        }
+            //        if (!game.Player.AnimationStarted && game.Player.CurrentAnimation == "idle_anim1")
+            //        {
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_dribble_idle_anim1;
+            //            //g.DrawImage(Hoops.Properties.Resources.player_dribble_idle_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            game.Player.CurrentAnimation = "idle_anim2";
+            //        }
+            //        else if (!game.Player.AnimationStarted && game.Player.CurrentAnimation == "idle_anim2")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_dribble_idle_anim2, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_dribble_idle_anim2;
+
+            //            SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
+            //            sp.Play();
+            //            game.Player.CurrentAnimation = "idle_anim1";
+            //        }
+            //    }
+
+            //    else if (game.Player.IsRunning)
+            //    {
+            //        if (game.Player.AnimationStarted)
+            //        {
+            //            if (game.Player.AnimationStep == 1 && game.Player.CurrentAnimation != "anim1")
+            //            {
+            //               // g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim1;
+            //                game.Player.CurrentAnimation = "anim1";
+            //            }
+            //            else if (game.Player.AnimationStep == 2 && game.Player.CurrentAnimation != "anim2")
+            //            {
+            //                //g.DrawImage(Hoops.Properties.Resources.player_dribble_anim2, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim2;
+            //                game.Player.CurrentAnimation = "anim2";
+            //            }
+            //            else if (game.Player.AnimationStep == 3 && game.Player.CurrentAnimation != "anim3")
+            //            {
+            //                //g.DrawImage(Hoops.Properties.Resources.player_dribble_anim3, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim3;
+            //                game.Player.CurrentAnimation = "anim3";
+            //            }
+            //            else if (game.Player.AnimationStep == 4 && game.Player.CurrentAnimation != "anim4")
+            //            {
+            //               // g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                game.Player.CurrentAnimation = "anim4";
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim4;
+            //                SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
+            //                sp.Play();
+            //            }
+            //            else if (game.Player.AnimationStep == 5 && game.Player.CurrentAnimation != "anim5")
+            //            {
+            //                //g.DrawImage(Hoops.Properties.Resources.player_dribble_anim5, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim5;
+            //                game.Player.CurrentAnimation = "anim5";
+            //            }
+            //            else if (game.Player.AnimationStep == 6 && game.Player.CurrentAnimation != "anim6")
+            //            {
+            //                //g.DrawImage(Hoops.Properties.Resources.player_dribble_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim6;
+            //                game.Player.CurrentAnimation = "anim6";
+            //            }
+            //            else if (game.Player.AnimationStep == 7 && game.Player.CurrentAnimation != "anim7")
+            //            {
+            //                //g.DrawImage(Hoops.Properties.Resources.player_dribble_anim7, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //                pbPlayer.Image = Hoops.Properties.Resources.player_dribble_anim7;
+            //                game.Player.CurrentAnimation = "idle_anim1";
+            //                game.Player.AnimationStarted = false;
+            //                game.Player.IsRunning = false;
+            //                game.Player.IsDribbling = true;
+            //            }
+            //        }
+
+            //    }
+
+            //    else if (game.Player.IsShooting)
+            //    {
+            //        if (game.Player.AnimationStep == 1 && game.Player.CurrentAnimation != "anim1")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim1;
+            //            game.Player.CurrentAnimation = "anim1";
+            //        }
+            //        else if (game.Player.AnimationStep == 2 && game.Player.CurrentAnimation != "anim2")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim2, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim2;
+            //            game.Player.CurrentAnimation = "anim2";
+            //        }
+            //        else if (game.Player.AnimationStep == 3 && game.Player.CurrentAnimation != "anim3")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim3, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim3;
+            //            game.Player.CurrentAnimation = "anim3";
+            //        }
+            //        else if (game.Player.AnimationStep == 4 && game.Player.CurrentAnimation != "anim4")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim4;
+            //            game.Player.CurrentAnimation = "anim4";
+            //        }
+            //        else if (game.Player.AnimationStep == 5 && game.Player.CurrentAnimation != "anim5")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim5, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim5;
+            //            game.Player.CurrentAnimation = "anim5";
+            //        }
+            //        else if (game.Player.AnimationStep == 6 && game.Player.CurrentAnimation != "anim6")
+            //        {
+            //            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+            //            pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim6;
+            //            game.Player.CurrentAnimation = "anim6";
+            //        }
+            //    }
+            //}
 
     
         }
@@ -508,7 +719,7 @@ namespace Hoops
 
         }
 
-        private void startTimedMode()
+        public void startTimedMode()
         {
             game = new TimedGame(new Basketball(Constants.INITIAL_BALL_LOCATION, Constants.BASKETBALL_RADIUS), new Player(Constants.INITIAL_PLAYER_LOCATION));
             InitializeGameMode();
@@ -517,19 +728,25 @@ namespace Hoops
             timerTimeLeft.Start();
         }
 
-        private void startFreestyleMode()
+        public void startFreestyleMode()
         {
             game = new FreestyleGame(new Basketball(Constants.INITIAL_BALL_LOCATION, Constants.BASKETBALL_RADIUS), new Player(Constants.INITIAL_PLAYER_LOCATION));
             InitializeGameMode();
             lblTimeLeft.Visible = false;
             timerPlayerAnimation.Interval = 240;
             timerPlayerAnimation.Start();
+            game.IsStarted = true;
         }
 
         private void btnFreestyle_Click(object sender, EventArgs e)
         {
             pnlMenu.Visible = false;
             startFreestyleMode();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
         }
     }
 }

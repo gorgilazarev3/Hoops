@@ -9,18 +9,18 @@ namespace Hoops
 {
     public class Constants
     {
-        public static Point BACKBOARD_START { get; set; } = new Point(851, 306);
-        public static Point BACKBOARD_END { get; set; } = new Point(849, 409);
-        public static Point RIM_LEFT_START { get; set; } = new Point(757, 419);
-        public static Point RIM_LEFT_END { get; set; } = new Point(775, 419);
-        public static Point RIM_RIGHT_START { get; set; } = new Point(840, 419);
-        public static Point RIM_RIGHT_END { get; set; } = new Point(858, 419);
-        public static Point POLE_START { get; set; } = new Point(927, 445);
-        public static Point POLE_END { get; set; } = new Point(927, 685);
-        public static Point FLOOR_START { get; set; } = new Point(0, 706);
-        public static Point FLOOR_END { get; set; } = new Point(923, 706);
+        public static Point BACKBOARD_START { get; set; } = new Point(1139, 378);
+        public static Point BACKBOARD_END { get; set; } = new Point(1139, 509);
+        public static Point RIM_LEFT_START { get; set; } = new Point(1010, 518);
+        public static Point RIM_LEFT_END { get; set; } = new Point(1033, 518);
+        public static Point RIM_RIGHT_START { get; set; } = new Point(1119, 518);
+        public static Point RIM_RIGHT_END { get; set; } = new Point(1142, 518);
+        public static Point POLE_START { get; set; } = new Point(1237, 550);
+        public static Point POLE_END { get; set; } = new Point(1237, 844);
+        public static Point FLOOR_START { get; set; } = new Point(0, 859);
+        public static Point FLOOR_END { get; set; } = new Point(1219, 859);
         public static Point INITIAL_PLAYER_LOCATION { get; set; } = new Point(391, 628);
-        public static Point INITIAL_BALL_LOCATION { get; set; } = new Point(404, 556);
+        public static Point INITIAL_BALL_LOCATION { get; set; } = new Point(547, 680);
         public static int TIMED_MODE_ANIMATION_STEPS { get; set; } = 6;
         public static int FREESTYLE_MODE_ANIMATION_STEPS { get; set; } = 7;
 

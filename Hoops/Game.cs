@@ -17,6 +17,7 @@ namespace Hoops
         public int Angle { get; set; }
         public bool CanShoot { get; set; }
         public Constants.GAME_TYPE TYPE_OF_GAME { get; set; }
+        public bool PowerSet { get; set; }
 
         protected Game(Basketball basketball, Player player)
         {
@@ -31,6 +32,7 @@ namespace Hoops
             IsStarted = false;
             Power = 50;
             Angle = 45;
+            PowerSet = false;
         }
 
 

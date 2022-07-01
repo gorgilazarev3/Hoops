@@ -290,6 +290,16 @@ namespace Hoops.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap player_dunk_anim {
+            get {
+                object obj = ResourceManager.GetObject("player_dunk_anim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player_dunking_anim1 {
             get {
                 object obj = ResourceManager.GetObject("player_dunking_anim1", resourceCulture);

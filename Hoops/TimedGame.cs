@@ -11,7 +11,6 @@ namespace Hoops
     {
         public int TimeLeft { get; set; }
         public int BarValue { get; set; }
-        public bool PowerSet { get; set; }
 
         public TimedGame(Basketball basketball, Player player) : base(basketball,player)
         {

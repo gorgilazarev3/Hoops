@@ -38,26 +38,27 @@
             this.lblScoreboard = new System.Windows.Forms.Label();
             this.lblTimeLeft = new System.Windows.Forms.Label();
             this.timerTimeLeft = new System.Windows.Forms.Timer(this.components);
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnFreestyle = new System.Windows.Forms.PictureBox();
-            this.btnTimed = new System.Windows.Forms.PictureBox();
-            this.pbExitGame = new System.Windows.Forms.PictureBox();
-            this.pbStartGame = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbLogoMenu = new System.Windows.Forms.PictureBox();
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.pbBall = new System.Windows.Forms.PictureBox();
             this.pbFullCourt = new System.Windows.Forms.PictureBox();
-            this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFreestyle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTimed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExitGame)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoMenu)).BeginInit();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pbLogoMenu = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbStartGame = new System.Windows.Forms.PictureBox();
+            this.pbExitGame = new System.Windows.Forms.PictureBox();
+            this.btnTimed = new System.Windows.Forms.PictureBox();
+            this.btnFreestyle = new System.Windows.Forms.PictureBox();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullCourt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExitGame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTimed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFreestyle)).BeginInit();
+            this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -132,92 +133,6 @@
             this.timerTimeLeft.Interval = 1000;
             this.timerTimeLeft.Tick += new System.EventHandler(this.timerTimeLeft_Tick);
             // 
-            // pnlMenu
-            // 
-            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.pnlMenu.Controls.Add(this.btnFreestyle);
-            this.pnlMenu.Controls.Add(this.btnTimed);
-            this.pnlMenu.Controls.Add(this.pbExitGame);
-            this.pnlMenu.Controls.Add(this.pbStartGame);
-            this.pnlMenu.Controls.Add(this.pictureBox1);
-            this.pnlMenu.Controls.Add(this.pbLogoMenu);
-            this.pnlMenu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pnlMenu.Location = new System.Drawing.Point(0, -1);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(1445, 1007);
-            this.pnlMenu.TabIndex = 7;
-            // 
-            // btnFreestyle
-            // 
-            this.btnFreestyle.Image = global::Hoops.Properties.Resources.freestyle_mode_text;
-            this.btnFreestyle.Location = new System.Drawing.Point(851, 485);
-            this.btnFreestyle.Name = "btnFreestyle";
-            this.btnFreestyle.Size = new System.Drawing.Size(444, 408);
-            this.btnFreestyle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnFreestyle.TabIndex = 5;
-            this.btnFreestyle.TabStop = false;
-            this.btnFreestyle.Visible = false;
-            this.btnFreestyle.Click += new System.EventHandler(this.btnFreestyle_Click);
-            // 
-            // btnTimed
-            // 
-            this.btnTimed.Image = global::Hoops.Properties.Resources.timed_mode_text;
-            this.btnTimed.Location = new System.Drawing.Point(165, 514);
-            this.btnTimed.Name = "btnTimed";
-            this.btnTimed.Size = new System.Drawing.Size(444, 292);
-            this.btnTimed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnTimed.TabIndex = 4;
-            this.btnTimed.TabStop = false;
-            this.btnTimed.Visible = false;
-            this.btnTimed.Click += new System.EventHandler(this.btnTimed_Click);
-            // 
-            // pbExitGame
-            // 
-            this.pbExitGame.Image = global::Hoops.Properties.Resources.btn_exit;
-            this.pbExitGame.Location = new System.Drawing.Point(219, 727);
-            this.pbExitGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbExitGame.Name = "pbExitGame";
-            this.pbExitGame.Size = new System.Drawing.Size(772, 254);
-            this.pbExitGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbExitGame.TabIndex = 3;
-            this.pbExitGame.TabStop = false;
-            this.pbExitGame.Click += new System.EventHandler(this.pbExitGame_Click);
-            // 
-            // pbStartGame
-            // 
-            this.pbStartGame.Image = global::Hoops.Properties.Resources.btn_start_game;
-            this.pbStartGame.Location = new System.Drawing.Point(373, 496);
-            this.pbStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbStartGame.Name = "pbStartGame";
-            this.pbStartGame.Size = new System.Drawing.Size(772, 254);
-            this.pbStartGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbStartGame.TabIndex = 2;
-            this.pbStartGame.TabStop = false;
-            this.pbStartGame.Click += new System.EventHandler(this.pbStartGame_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Hoops.Properties.Resources.hoops_logo_text;
-            this.pictureBox1.Location = new System.Drawing.Point(441, 293);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(595, 197);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbLogoMenu
-            // 
-            this.pbLogoMenu.Image = global::Hoops.Properties.Resources.icon;
-            this.pbLogoMenu.Location = new System.Drawing.Point(593, 49);
-            this.pbLogoMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbLogoMenu.Name = "pbLogoMenu";
-            this.pbLogoMenu.Size = new System.Drawing.Size(259, 222);
-            this.pbLogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogoMenu.TabIndex = 0;
-            this.pbLogoMenu.TabStop = false;
-            // 
             // pbPlayer
             // 
             this.pbPlayer.BackColor = System.Drawing.Color.Transparent;
@@ -256,10 +171,100 @@
             this.pbFullCourt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseClick);
             this.pbFullCourt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseMove);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // pbLogoMenu
+            // 
+            this.pbLogoMenu.Image = global::Hoops.Properties.Resources.icon;
+            this.pbLogoMenu.Location = new System.Drawing.Point(593, 49);
+            this.pbLogoMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbLogoMenu.Name = "pbLogoMenu";
+            this.pbLogoMenu.Size = new System.Drawing.Size(259, 222);
+            this.pbLogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoMenu.TabIndex = 0;
+            this.pbLogoMenu.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Hoops.Properties.Resources.hoops_logo_text;
+            this.pictureBox1.Location = new System.Drawing.Point(441, 293);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(595, 197);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbStartGame
+            // 
+            this.pbStartGame.Image = global::Hoops.Properties.Resources.btn_start_game;
+            this.pbStartGame.Location = new System.Drawing.Point(373, 496);
+            this.pbStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbStartGame.Name = "pbStartGame";
+            this.pbStartGame.Size = new System.Drawing.Size(772, 254);
+            this.pbStartGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbStartGame.TabIndex = 2;
+            this.pbStartGame.TabStop = false;
+            this.pbStartGame.Click += new System.EventHandler(this.pbStartGame_Click);
+            // 
+            // pbExitGame
+            // 
+            this.pbExitGame.Image = global::Hoops.Properties.Resources.btn_exit;
+            this.pbExitGame.Location = new System.Drawing.Point(219, 727);
+            this.pbExitGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbExitGame.Name = "pbExitGame";
+            this.pbExitGame.Size = new System.Drawing.Size(772, 254);
+            this.pbExitGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbExitGame.TabIndex = 3;
+            this.pbExitGame.TabStop = false;
+            this.pbExitGame.Click += new System.EventHandler(this.pbExitGame_Click);
+            // 
+            // btnTimed
+            // 
+            this.btnTimed.Image = global::Hoops.Properties.Resources.timed_mode_text;
+            this.btnTimed.Location = new System.Drawing.Point(219, 565);
+            this.btnTimed.Name = "btnTimed";
+            this.btnTimed.Size = new System.Drawing.Size(444, 292);
+            this.btnTimed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnTimed.TabIndex = 4;
+            this.btnTimed.TabStop = false;
+            this.btnTimed.Visible = false;
+            this.btnTimed.Click += new System.EventHandler(this.btnTimed_Click);
+            // 
+            // btnFreestyle
+            // 
+            this.btnFreestyle.Image = global::Hoops.Properties.Resources.freestyle_mode_text;
+            this.btnFreestyle.Location = new System.Drawing.Point(770, 482);
+            this.btnFreestyle.Name = "btnFreestyle";
+            this.btnFreestyle.Size = new System.Drawing.Size(541, 494);
+            this.btnFreestyle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnFreestyle.TabIndex = 5;
+            this.btnFreestyle.TabStop = false;
+            this.btnFreestyle.Visible = false;
+            this.btnFreestyle.Click += new System.EventHandler(this.btnFreestyle_Click);
+            // 
+            // pnlMenu
+            // 
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.pnlMenu.Controls.Add(this.btnFreestyle);
+            this.pnlMenu.Controls.Add(this.btnTimed);
+            this.pnlMenu.Controls.Add(this.pbExitGame);
+            this.pnlMenu.Controls.Add(this.pbStartGame);
+            this.pnlMenu.Controls.Add(this.pictureBox1);
+            this.pnlMenu.Controls.Add(this.pbLogoMenu);
+            this.pnlMenu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pnlMenu.Location = new System.Drawing.Point(0, -1);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(1445, 1007);
+            this.pnlMenu.TabIndex = 7;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1444, 1007);
             this.Controls.Add(this.pnlMenu);
@@ -281,16 +286,16 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
-            this.pnlMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnFreestyle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTimed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExitGame)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogoMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFullCourt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExitGame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTimed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFreestyle)).EndInit();
+            this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +313,7 @@
         private System.Windows.Forms.Label lblScoreboard;
         private System.Windows.Forms.Label lblTimeLeft;
         private System.Windows.Forms.Timer timerTimeLeft;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pbLogoMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbStartGame;

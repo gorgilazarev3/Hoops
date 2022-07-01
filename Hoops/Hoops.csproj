@@ -215,5 +215,8 @@
   <ItemGroup>
     <None Include="Properties\images\player-dribble-idle-anim2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\images\player-dunk-anim.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
