@@ -371,6 +371,10 @@ namespace Hoops
                         game.Player.CurrentAnimation = "idle_anim1";
                     }
                 }
+                if(game.Player.IsDunking)
+                {
+                    game.Player.Points++;
+                }
 
             }
             Invalidate(true);
@@ -471,8 +475,8 @@ namespace Hoops
                     game.Player.IsDribbling = false;
                     game.Player.IsShooting = false;
                     game.Player.IsDunking = false;
-                    if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
-                        game.Player.CurrentAnimation = "anim1";
+                    //if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
+                    //    game.Player.CurrentAnimation = "anim1";
                     if (!timerPlayerAnimation.Enabled)
                         timerPlayerAnimation.Start();
                     game.Player.LeftOrientation = true;
@@ -489,8 +493,8 @@ namespace Hoops
                     game.Player.IsDribbling = false;
                     game.Player.IsShooting = false;
                     game.Player.IsDunking = false;
-                    if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
-                        game.Player.CurrentAnimation = "anim1";
+                    //if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
+                    //    game.Player.CurrentAnimation = "anim1";
                     game.Player.LeftOrientation = false;
                     Invalidate(true);
                 }

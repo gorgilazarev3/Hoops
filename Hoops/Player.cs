@@ -160,23 +160,80 @@ namespace Hoops
             {
                 if(AnimationStarted)
                 {
-                    if (CurrentAnimation == "anim1")
+                    //if (CurrentAnimation == "anim1")
+                    //{
+                    //if (!LeftOrientation)
+                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                    //else
+                    //{
+                    //    Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim1);
+                    //    img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    //    g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                    //    img.Dispose();
+                    //}
+                    //CurrentAnimation = "anim4";
+                    //}
+                    //else if (CurrentAnimation == "anim4")
+                    //{
+                    //    if(!LeftOrientation)
+                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                    //    else
+                    //    {
+                    //        Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim4);
+                    //        img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    //        g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                    //        img.Dispose();
+                    //    }
+                    //    CurrentAnimation = "anim1";
+                    //    SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
+                    //    sp.Play();
+                    //}
+
+
+                    if (AnimationStep == 1 && CurrentAnimation != "anim1")
                     {
-                        if(!LeftOrientation)
-                        g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
                         else
                         {
                             Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim1);
                             img.RotateFlip(RotateFlipType.RotateNoneFlipX);
                             g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                            img.Dispose();                        
+                            img.Dispose();
                         }
-                        CurrentAnimation = "anim4";
+                        CurrentAnimation = "anim1";
                     }
-                    else if (CurrentAnimation == "anim4")
+                    else if (AnimationStep == 2 && CurrentAnimation != "anim2")
                     {
-                        if(!LeftOrientation)
-                        g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim2, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        else
+                        {
+                            Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim2);
+                            img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                            img.Dispose();
+                        }
+                        CurrentAnimation = "anim2";
+                    }
+                    else if (AnimationStep == 3 && CurrentAnimation != "anim3")
+                    {
+
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim3, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        else
+                        {
+                            Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim3);
+                            img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                            img.Dispose();
+                        }
+                        CurrentAnimation = "anim3";
+                    }
+                    else if (AnimationStep == 4 && CurrentAnimation != "anim4")
+                    {
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
                         else
                         {
                             Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim4);
@@ -184,52 +241,52 @@ namespace Hoops
                             g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
                             img.Dispose();
                         }
-                        CurrentAnimation = "anim1";
+                        CurrentAnimation = "anim4";
                         SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
                         sp.Play();
                     }
-
-
-                    //if (AnimationStep == 1 && CurrentAnimation != "anim1")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim1";
-                    //}
-                    //else if (AnimationStep == 2 && CurrentAnimation != "anim2")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim2, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim2";
-                    //}
-                    //else if (AnimationStep == 3 && CurrentAnimation != "anim3")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim3, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim3";
-                    //}
-                    //else if (AnimationStep == 4 && CurrentAnimation != "anim4")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim4";
-                    //    SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
-                    //    sp.Play();
-                    //}
-                    //else if (AnimationStep == 5 && CurrentAnimation != "anim5")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim5, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim5";
-                    //}
-                    //else if (AnimationStep == 6 && CurrentAnimation != "anim6")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "anim6";
-                    //}
-                    //else if (AnimationStep == 7 && CurrentAnimation != "anim7")
-                    //{
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim7, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    CurrentAnimation = "idle_anim1";
-                    //    AnimationStarted = false;
-                    //    IsRunning = false;
-                    //    IsDribbling = true;
-                    //}
+                    else if (AnimationStep == 5 && CurrentAnimation != "anim5")
+                    {
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim5, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        else
+                        {
+                            Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim5);
+                            img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                            img.Dispose();
+                        }
+                        CurrentAnimation = "anim5";
+                    }
+                    else if (AnimationStep == 6 && CurrentAnimation != "anim6")
+                    {
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        else
+                        {
+                            Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim6);
+                            img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                            img.Dispose();
+                        }
+                        CurrentAnimation = "anim6";
+                    }
+                    else if (AnimationStep == 7 && CurrentAnimation != "anim7")
+                    {
+                        if (!LeftOrientation)
+                            g.DrawImage(Hoops.Properties.Resources.player_dribble_anim7, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                        else
+                        {
+                            Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim7);
+                            img.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
+                            img.Dispose();
+                        }
+                        CurrentAnimation = "idle_anim1";
+                        AnimationStarted = false;
+                        IsRunning = false;
+                        IsDribbling = true;
+                    }
                 }
 
             }
@@ -270,6 +327,7 @@ namespace Hoops
 
             else if (IsDunking)
             {
+                Location = new Point(Constants.RIM_LEFT_START.X - Constants.PLAYER_IMAGE_WIDTH, Constants.RIM_LEFT_START.Y);
                 if (AnimationStep == 1 && CurrentAnimation != "anim1")
                 {
                     g.DrawImage(Hoops.Properties.Resources.player_dunking_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
@@ -299,6 +357,8 @@ namespace Hoops
                 {
                     g.DrawImage(Hoops.Properties.Resources.player_dunking_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
                     CurrentAnimation = "anim6";
+                    Location = new Point(Constants.RIM_LEFT_START.X - Constants.PLAYER_IMAGE_WIDTH, Constants.INITIAL_PLAYER_LOCATION.Y);
+
                 }
             }
 

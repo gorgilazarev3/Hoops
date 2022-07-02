@@ -36,29 +36,29 @@ namespace Hoops
             RotationAngle = 0;
         }
 
-        public void ShootTimed(int barValue, Court court)
-        {
-            IsShot = true;
-            int nextY = CurrentLocation.Y - 1;
-            if(nextY <= court.Hoop.BackboardStart.Y && CurrentLocation.X >= court.Hoop.BackboardStart.X && CurrentLocation.X <= court.Hoop.BackboardEnd.X)
-            {
-                IsBouncing = true;
-            }
-            if (IsBouncing)
-                nextY = CurrentLocation.Y + 1;
+        //public void ShootTimed(int barValue, Court court)
+        //{
+        //    IsShot = true;
+        //    int nextY = CurrentLocation.Y - 1;
+        //    if(nextY <= court.Hoop.BackboardStart.Y && CurrentLocation.X >= court.Hoop.BackboardStart.X && CurrentLocation.X <= court.Hoop.BackboardEnd.X)
+        //    {
+        //        IsBouncing = true;
+        //    }
+        //    if (IsBouncing)
+        //        nextY = CurrentLocation.Y + 1;
             
-            if(CurrentLocation.X >= court.Hoop.InsideRim.X1 && CurrentLocation.X <= court.Hoop.InsideRim.X2 && CurrentLocation.Y >= court.Hoop.InsideRim.Y1 && CurrentLocation.Y <= court.Hoop.InsideRim.Y2 + 20)
-            {
-                IsInHoop = true;
-            }
+        //    if(CurrentLocation.X >= court.Hoop.InsideRim.X1 && CurrentLocation.X <= court.Hoop.InsideRim.X2 && CurrentLocation.Y >= court.Hoop.InsideRim.Y1 && CurrentLocation.Y <= court.Hoop.InsideRim.Y2 + 20)
+        //    {
+        //        IsInHoop = true;
+        //    }
 
-            if (IsInHoop || CurrentLocation.Y >= court.Floor.FloorStart.Y)
-            {
-                FinishShot();
-            }
+        //    if (IsInHoop || CurrentLocation.Y >= court.Floor.FloorStart.Y)
+        //    {
+        //        FinishShot();
+        //    }
 
-            CurrentLocation = new Point(CurrentLocation.X, nextY);
-        }
+        //    CurrentLocation = new Point(CurrentLocation.X, nextY);
+        //}
 
         //credits to https://github.com/tzxb018 for this function for simulating movement of the ball on the y axis
         public double YMovement(double speed, double theta, double time, double gravity) //makeshift gravity
@@ -67,6 +67,7 @@ namespace Hoops
             return (((speed*0.82 * a/2 * -10) * time + gravity * Math.Pow(time, 2)) / 100); //s = ut + .5at^2
         }
 
+        //Author of original function for shooting a basketball: https://github.com/tzxb018, tweaked by me to fit my game
         public void Shoot(double power, int angle, int gravity, Court court)
         {
             if(IsInHoop)
