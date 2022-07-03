@@ -61,12 +61,16 @@ Freestyle Mode
  ![Screenshot](https://i.imgur.com/tJ5lY9N.png)
 
  
-  ![Screenshot]( https://i.imgur.com/vneH5GI.png)
+  ![Screenshot](https://i.imgur.com/vneH5GI.png)
  
 Шутирањето се изведува на ист начин како и во Timed Mode.
  
 Во Freestyle режимот можно е да се појават багови при што играчот нема да се прикаже на екран или анимациите нема да се прикажат на екранот.
 
+
+![Screenshot] (https://i.imgur.com/rQKhfFU.png)
+
+Доколку играчот се наоѓа на растојание помало од 200 единици при клик на копчето за шутирање играчот ќе ја забие топката во обрачот.
 
 Изработил:<br />
 Горги Лазарев 201042 <br />
