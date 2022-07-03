@@ -329,8 +329,16 @@ namespace Hoops
                     g.DrawImage(Hoops.Properties.Resources.player_dunking_anim6, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
                     CurrentAnimation = "anim6";
                     Location = new Point(Constants.RIM_LEFT_START.X - Constants.PLAYER_IMAGE_WIDTH, Constants.INITIAL_PLAYER_LOCATION.Y);
-
+                    IsDribbling = true;
+                    IsDunking = false;
+                    AnimationStarted = false;
+                    SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_Brick);
+                    sp.Play();
                 }
+            }
+            else
+            {
+                    g.DrawImage(Hoops.Properties.Resources.player_dribble_idle_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
             }
 
         }

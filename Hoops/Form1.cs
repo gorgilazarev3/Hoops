@@ -188,6 +188,14 @@ namespace Hoops
                                 game.Player.IsRunning = false;
                                 game.Basketball.IsShot = true;
                                 game.Player.AnimationStep = 1;
+                                if(game.Player.IsDunking)
+                                {
+                                    game.Player.Points++;
+                                    game.Basketball.IsShot = false;
+                                    game.PowerSet = false;
+                                    updateScoreboard();
+                                    Invalidate(true);
+                                }
                             }
                         }
                     }
@@ -269,18 +277,17 @@ namespace Hoops
                 {
                     if (game.Player.AnimationStep > Constants.TIMED_MODE_ANIMATION_STEPS)
                     {
-                        timerShootingBall.Enabled = true;
-                        timerShootingBall.Start();
+                        if(!game.Player.IsDunking)
+                        {
+                            timerShootingBall.Enabled = true;
+                            timerShootingBall.Start();
+                        }
                         timerPlayerAnimation.Stop();
                         game.Player.AnimationStep = 1;
                         game.Player.IsShooting = false;
                         game.Player.IsDribbling = true;
                         game.Player.CurrentAnimation = "idle_anim1";
                     }
-                }
-                if(game.Player.IsDunking)
-                {
-                    game.Player.Points++;
                 }
             }
             Invalidate(true);
