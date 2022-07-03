@@ -16,80 +16,34 @@ namespace Hoops
 {
     public partial class Form1 : Form
     {
-        //for timed example, (404,284) is ball initial
-        //(338,49) - backboard start, (470,119) - backboard end
-        //(374,100) rim left start (377,100) rim left end
-        //(431,100) rim right start (434,100) rim right end
-        //(404,120) pole start (404,306) pole end
-        //(0,342) floor start, (809,342) floor end
         Point cursor;
         Point insideHoop = new Point(822, 268);
-        //front of rim is 618,103
-        //Freestyle game;
         public static Game game;
-        //TimedGame tg;
         int numPresses = 0;
-        int powerTicks = 0;
         HighScores scores;
         public Form1()
         {
             InitializeComponent();
             cursor = Point.Empty;
             pbBall.Visible = false;
-            //game = new Freestyle(insideHoop);
-            //game = new TimedGame(new Basketball(Constants.INITIAL_BALL_LOCATION, pbBall.Width / 2), new Player(Constants.INITIAL_PLAYER_LOCATION));
-            //if(game is TimedGame)
-            //{
-            //    game.SetGameType(Constants.GAME_TYPE.TIMED);   
-            //}
-            //else if(game is Freestyle)
-            //{
-            //    game.SetGameType(Constants.GAME_TYPE.FREESTYLE);
-            //}
-            //tg = new TimedGame(new Hoop(new Point(338, 49), new Point(470, 119), new Point(374, 100), new Point(377, 100), new Point(431, 100), new Point(434, 100), new Point(404, 120), new Point(404, 306)), new Floor(new Point(0, 342), new Point(809, 342)), new Basketball(new Point(404, 284)), new Player());
             this.DoubleBuffered = true;
-            //pnlMenu.Size = new Size(Constants.FORM_WIDTH, Constants.FORM_HEIGHT);
             Deserialize();
-            //label1.Visible = true;
-            //pbFullCourt.Size = new Size(Constants.FORM_WIDTH, Constants.FORM_HEIGHT);
-            //pbFullCourt.Image = Hoops.Properties.Resources.basketball_court_outside_free_throw;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             cursor = e.Location;
-            //if (!game.PowerSet && game.IsStarted)
-            //{
-            //    double angle = GetAngleOfLineBetweenTwoPoints(game.Basketball.InitialLocation, cursor);
-            //    game.Angle = (int)angle;
-            //    Invalidate(true);
-            //}
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             label1.Text = String.Format("Cursor: X={0}, Y={1}\nDifference: X={2}, Y={3}",cursor.X,cursor.Y,pbFullCourt.Width-cursor.X,pbFullCourt.Height-cursor.Y);
-            //if (!game.IsStarted)
-            //{
-            //    game.StartGame(e.Location,pbBall.Width/2);
-            //    Invalidate(true);
-            //}
             Invalidate(true);
         }
 
         private void pbFullCourt_MouseClick(object sender, MouseEventArgs e)
         {
             label1.Text = String.Format("Cursor: X={0}, Y={1}\nDifference: X={2}, Y={3}", cursor.X, cursor.Y, pbFullCourt.Width - cursor.X, pbFullCourt.Height - cursor.Y);
-            //if (!game.IsStarted)
-            //{
-            //    game.StartGame(e.Location, pbBall.Width / 2);
-            //    Invalidate(true);
-            //}
-            //if(!tg.IsStarted)
-            //{
-            //    tg.StartGame();
-            //    Invalidate(true);
-            //}
             Invalidate(true);
         }
 
@@ -119,18 +73,14 @@ namespace Hoops
             {
                 if (game != null && game.IsStarted && !pbBall.Visible && !pbPlayer.Visible)
                 {
-                    //pbBall.Parent = pbFullCourt;
                     pbPlayer.Parent = pbFullCourt;
-                    //pbBall.Location = new Point(game.Basketball.InitialLocation.X-pbBall.Width/2,game.Basketball.InitialLocation.Y-pbBall.Height/2);
                     pbBall.Location = game.Basketball.InitialLocation;
                     pbPlayer.Image = Hoops.Properties.Resources.player_timed_mode_anim1;
                     pbPlayer.SizeMode = PictureBoxSizeMode.AutoSize;
                     pbPlayer.Visible = true;
-                    //pbBall.Visible = true;
                 }
                 if (game != null && !(game as TimedGame).PowerSet && game.IsStarted && !game.Basketball.IsShot)
                 {
-                    //e.Graphics.DrawLine(new Pen(Color.Black), new Point(game.Basketball.InitialLocation.X + game.Basketball.Radius, game.Basketball.InitialLocation.Y + game.Basketball.Radius), cursor);
                     game.DrawCurveFromBall(e.Graphics);
                 }
                 updateScoreboard();
@@ -140,19 +90,12 @@ namespace Hoops
             if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
             {
                 pbBall.Location = game.Player.Location;
-                //pbPlayer.Location = game.Player.Location;
-                //pbPlayer.Parent = pbFullCourt;
-                //if(!pbPlayer.Visible)
-                //{
-                //    pbPlayer.Visible = true;
-                //}
             }
 
 
 
             if (game != null && game.Player.AnimationFinished && game.GetGameType().Equals(Constants.GAME_TYPE.TIMED))
             {
-                //pbBall.Visible = true;
                 game.Basketball.Draw(e.Graphics);
             }
 
@@ -169,13 +112,6 @@ namespace Hoops
                     game.Basketball.Draw(e.Graphics);
                 }
             }
-            //if (tg.IsStarted && !pbBall.Visible)
-            //{
-            //    pbBall.Parent = pbFullCourt;
-            //    //pbBall.Location = new Point(game.Basketball.InitialLocation.X-pbBall.Width/2,game.Basketball.InitialLocation.Y-pbBall.Height/2);
-            //    pbBall.Location = tg.Basketball.InitialLocation;
-            //    pbBall.Visible = true;
-            //}
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -188,6 +124,7 @@ namespace Hoops
                     game.Player.IsRunning = false;
                     game.Player.IsDunking = false;
                     game.Player.IsShooting = false;
+                    timerPlayerAnimation.Interval = 240;
                 }
                 if (e.KeyCode == Keys.Space && !game.PowerSet)
                 {
@@ -230,8 +167,6 @@ namespace Hoops
                             pbPower.Value = 0;
                             pbPower.Visible = false;
                             pbPower.Enabled = false;
-                            //timerShootingBall.Enabled = true;
-                            //timerShootingBall.Start();
                             numPresses = 0;
                             timerPlayerAnimation.Enabled = true;
                             timerPlayerAnimation.Start();
@@ -260,15 +195,6 @@ namespace Hoops
                 }
             }
 
-            //if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE))
-            //{
-            //    if(e.KeyCode == Keys.Space)
-            //    {
-            //        timerShootingBall.Enabled = true;
-            //        timerShootingBall.Start();
-            //    }
-            //}
-
         }
 
         private void timerShootingBall_Tick(object sender, EventArgs e)
@@ -290,22 +216,12 @@ namespace Hoops
                 game.Player.StartAnimation();
                 game.CanShoot = true;
             }
-            //if(tg.IsStarted)
-            //{
-            //    tg.Shoot();
-            //    updateBallLocation();
-            //}
-            //else
-            //{
-            //    timerShootingBall.Enabled = false;
-            //}
 
         }
 
         private void updateBallLocation()
         {
             pbBall.Location = game.Basketball.CurrentLocation;
-            //pbBall.Location = tg.Basketball.CurrentLocation;
         }
 
         private void timerPower_Tick(object sender, EventArgs e)
@@ -326,20 +242,10 @@ namespace Hoops
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //if(game.Basketball != null && game.IsStarted)
-            //updateBallLocation();
-            //if (!game.PowerSet && game.IsStarted)
-            //{
-            //    game.DrawCurveFromBall(e.Graphics);
-            //}
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //game.StartGame();
-            //timerTimeLeft.Enabled = true;
-            //timerTimeLeft.Start();
-            //pbBall.Parent = pbFullCourt;
         }
 
         private void timerPlayerAnimation_Tick(object sender, EventArgs e)
@@ -357,6 +263,7 @@ namespace Hoops
             }
             else if(game != null && game.GetGameType().Equals(Constants.GAME_TYPE.FREESTYLE) && game.Player.AnimationStarted)
             {
+                if(!game.Player.IsDribbling)
                 game.Player.Animate();
                 if(game.Player.IsShooting)
                 {
@@ -375,7 +282,6 @@ namespace Hoops
                 {
                     game.Player.Points++;
                 }
-
             }
             Invalidate(true);
         }
@@ -466,6 +372,7 @@ namespace Hoops
             {
                 if (e.KeyCode == Keys.Left)
                 {
+                    
                     if (!game.Player.AnimationStarted)
                         game.Player.StartAnimation();
                     game.Player.MoveLeft();
@@ -475,6 +382,7 @@ namespace Hoops
                     game.Player.IsDribbling = false;
                     game.Player.IsShooting = false;
                     game.Player.IsDunking = false;
+                    timerPlayerAnimation.Interval = 60;
                     //if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
                     //    game.Player.CurrentAnimation = "anim1";
                     if (!timerPlayerAnimation.Enabled)
@@ -493,6 +401,7 @@ namespace Hoops
                     game.Player.IsDribbling = false;
                     game.Player.IsShooting = false;
                     game.Player.IsDunking = false;
+                    timerPlayerAnimation.Interval = 60;
                     //if (game.Player.CurrentAnimation == "idle_anim2" || game.Player.CurrentAnimation == "idle_anim1")
                     //    game.Player.CurrentAnimation = "anim1";
                     game.Player.LeftOrientation = false;
@@ -668,11 +577,6 @@ namespace Hoops
 
         public void updateScreen()
         {
-            //Image img = new Bitmap(pbFullCourt.Size.Width, pbFullCourt.Size.Height);
-            //Graphics g = Graphics.FromImage(img);
-            //g.DrawImage(Hoops.Properties.Resources.basketball_court_timed_mode, 0, 0, pbFullCourt.Width, pbFullCourt.Height);
-            //g.DrawImage(Hoops.Properties.Resources.player_timed_mode_anim1, game.Player.Location);
-            //pbFullCourt.Image = img;
             Invalidate(true);
         }
 
@@ -691,16 +595,10 @@ namespace Hoops
 
         private void pbStartGame_Click(object sender, EventArgs e)
         {
-            //pnlMenu.Visible = false;
             pbStartGame.Visible = false;
             pbExitGame.Visible = false;
-            //lblFreestyle.Visible = true;
             btnTimed.Visible = true;
             btnFreestyle.Visible = true;
-            //game.StartGame();
-            //timerTimeLeft.Enabled = true;
-            //timerTimeLeft.Start();
-            //pbBall.Parent = pbFullCourt;
         }
 
 

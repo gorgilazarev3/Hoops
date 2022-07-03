@@ -160,36 +160,6 @@ namespace Hoops
             {
                 if(AnimationStarted)
                 {
-                    //if (CurrentAnimation == "anim1")
-                    //{
-                    //if (!LeftOrientation)
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim1, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //else
-                    //{
-                    //    Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim1);
-                    //    img.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                    //    g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    img.Dispose();
-                    //}
-                    //CurrentAnimation = "anim4";
-                    //}
-                    //else if (CurrentAnimation == "anim4")
-                    //{
-                    //    if(!LeftOrientation)
-                    //    g.DrawImage(Hoops.Properties.Resources.player_dribble_anim4, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //    else
-                    //    {
-                    //        Image img = new Bitmap(Hoops.Properties.Resources.player_dribble_anim4);
-                    //        img.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                    //        g.DrawImage(img, Location.X, Location.Y, Constants.PLAYER_IMAGE_WIDTH + 10, Constants.PLAYER_IMAGE_HEIGHT);
-                    //        img.Dispose();
-                    //    }
-                    //    CurrentAnimation = "anim1";
-                    //    SoundPlayer sp = new SoundPlayer(Hoops.Properties.Resources.Basketball_BallBounce);
-                    //    sp.Play();
-                    //}
-
-
                     if (AnimationStep == 1 && CurrentAnimation != "anim1")
                     {
                         if (!LeftOrientation)
@@ -285,6 +255,7 @@ namespace Hoops
                         CurrentAnimation = "idle_anim1";
                         AnimationStarted = false;
                         IsRunning = false;
+                        IsDunking = false;
                         IsDribbling = true;
                     }
                 }

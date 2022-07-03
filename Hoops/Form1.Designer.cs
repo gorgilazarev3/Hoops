@@ -41,7 +41,6 @@
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.pbBall = new System.Windows.Forms.PictureBox();
             this.pbFullCourt = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pbLogoMenu = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbStartGame = new System.Windows.Forms.PictureBox();
@@ -170,10 +169,6 @@
             this.pbFullCourt.Paint += new System.Windows.Forms.PaintEventHandler(this.pbFullCourt_Paint);
             this.pbFullCourt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseClick);
             this.pbFullCourt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbFullCourt_MouseMove);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // pbLogoMenu
             // 
@@ -313,7 +308,6 @@
         private System.Windows.Forms.Label lblScoreboard;
         private System.Windows.Forms.Label lblTimeLeft;
         private System.Windows.Forms.Timer timerTimeLeft;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pbLogoMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbStartGame;

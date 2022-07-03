@@ -36,30 +36,6 @@ namespace Hoops
             RotationAngle = 0;
         }
 
-        //public void ShootTimed(int barValue, Court court)
-        //{
-        //    IsShot = true;
-        //    int nextY = CurrentLocation.Y - 1;
-        //    if(nextY <= court.Hoop.BackboardStart.Y && CurrentLocation.X >= court.Hoop.BackboardStart.X && CurrentLocation.X <= court.Hoop.BackboardEnd.X)
-        //    {
-        //        IsBouncing = true;
-        //    }
-        //    if (IsBouncing)
-        //        nextY = CurrentLocation.Y + 1;
-            
-        //    if(CurrentLocation.X >= court.Hoop.InsideRim.X1 && CurrentLocation.X <= court.Hoop.InsideRim.X2 && CurrentLocation.Y >= court.Hoop.InsideRim.Y1 && CurrentLocation.Y <= court.Hoop.InsideRim.Y2 + 20)
-        //    {
-        //        IsInHoop = true;
-        //    }
-
-        //    if (IsInHoop || CurrentLocation.Y >= court.Floor.FloorStart.Y)
-        //    {
-        //        FinishShot();
-        //    }
-
-        //    CurrentLocation = new Point(CurrentLocation.X, nextY);
-        //}
-
         //credits to https://github.com/tzxb018 for this function for simulating movement of the ball on the y axis
         public double YMovement(double speed, double theta, double time, double gravity) //makeshift gravity
         {
@@ -188,22 +164,17 @@ namespace Hoops
             //offRim = false;
         }
 
+        //credits to https://github.com/tzxb018 for this function that draws the beginning of the curve that the ball will take with the chosen power and angle
         public void DrawCurveFromBall(Graphics g, int angle)
         {
-            List<Point> points = new List<Point>();
             SolidBrush b = new SolidBrush(Color.Black);
-            Pen p = new Pen(b);
-            p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            for (double t = 1; t < 50; t += 1)
+            for (double t = 1; t < 25; t += 1)
             {
                 double dx;
                 dx = Power * Math.Cos(angle * (3.14 / 180));
                 dx /= 10;
-                g.FillEllipse(b, (int)((InitialLocation.X+Radius) + (int)dx * t), (int)(CurrentLocation.Y+Radius + YMovement(Power, angle, t - 1, Previous.GRAVITY)), 4, 4);
-                //points.Add(new Point((int)((InitialLocation.X) + (int)dx * t), (int)(CurrentLocation.Y + (45 / 2) + YMovement(Power, angle, t - 1, Freestyle.GRAVITY))));
+                g.FillEllipse(b, (int)((InitialLocation.X+Radius) + (int)dx * t), (int)(CurrentLocation.Y+Radius + YMovement(Power, angle, t - 1, Previous.GRAVITY) - 20), 4, 4);
             }
-            //g.DrawCurve(p, points.ToArray());
-            p.Dispose();
             b.Dispose();
         }
 
